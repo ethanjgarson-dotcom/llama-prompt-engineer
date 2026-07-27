@@ -2,6 +2,6 @@ numpy
 sounddevice
 openai-whisper
 ollama
-pyperclip
+flask
+pynput
 rich
-Pillow

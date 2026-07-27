@@ -142,7 +142,9 @@ def transcribe():
     audio_file = request.files["audio"]
     model      = get_whisper()
 
-    with tempfile.NamedTemporaryFile(suffix=".webm", delete=False) as tmp:
+    mime = audio_file.content_type or ""
+    ext  = ".mp4" if "mp4" in mime else ".webm"
+    with tempfile.NamedTemporaryFile(suffix=ext, delete=False) as tmp:
         audio_file.save(tmp.name)
         tmp_path = tmp.name
 

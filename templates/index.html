@@ -1070,11 +1070,19 @@
       }
     }
 
+    function getSupportedMimeType() {
+      for (const t of ['audio/webm', 'audio/mp4', 'audio/ogg']) {
+        if (MediaRecorder.isTypeSupported(t)) return t;
+      }
+      return '';
+    }
+
     async function startRecording() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioChunks  = [];
-        mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm' });
+        const mimeType = getSupportedMimeType();
+        mediaRecorder = new MediaRecorder(stream, mimeType ? { mimeType } : {});
 
         mediaRecorder.ondataavailable = e => { if (e.data.size > 0) audioChunks.push(e.data); };
         mediaRecorder.onstop = async () => {
