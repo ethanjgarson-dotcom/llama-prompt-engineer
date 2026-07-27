@@ -1,0 +1,7 @@
+numpy
+sounddevice
+openai-whisper
+ollama
+pyperclip
+rich
+Pillow
