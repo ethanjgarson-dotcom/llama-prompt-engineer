@@ -72,11 +72,12 @@
     }
 
     .logo-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--text);
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
       flex-shrink: 0;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
 
     .logo-version {
@@ -713,7 +714,7 @@
     <!-- Header -->
     <header class="header">
       <div class="logo">
-        <div class="logo-dot"></div>
+        <img class="logo-dot" src="/static/logo.png" alt="Llama" />
         Llama
         <span class="logo-version">v3</span>
       </div>
